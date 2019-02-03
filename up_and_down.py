@@ -107,7 +107,7 @@ class UpAndDownFlyer(Drone):
 
     def execute_mission (self):
         self.cmd_attitude_rate(1, 1, 1, 1)
-        self.cmd_attitude(0,0,0.1,0)
+        self.cmd_attitude(0, 0, 0.1, 0)
 
     def start(self):
         self.start_log("Logs", "NavLog.txt")
@@ -119,7 +119,7 @@ if __name__ == "__main__":
     conn = MavlinkConnection('tcp:127.0.0.1:5760',
                              threaded=False,
                              PX4=False)
-    #conn = CrazyflieConnection('radio://0/80/250K')
+    conn = CrazyflieConnection('radio://0/80/250K')
     drone = UpAndDownFlyer(conn)
     time.sleep(2)
     drone.start()
